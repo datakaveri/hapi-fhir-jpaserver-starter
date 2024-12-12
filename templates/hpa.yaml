@@ -1,0 +1,40 @@
+{{- if and .Values.fhir-resource-server.enabled .Values.fhir.autoscaling.enabled }}
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: fhir-resource-server
+  labels:
+    app: fhir-resource-server
+    {{- include "common.labels.standard" . | nindent 4 }}
+    {{- if .Values.commonLabels }}
+    {{- include "common.tplvalues.render" ( dict "value" .Values.commonLabels "context" $ ) | nindent 4 }}
+    {{- end }}
+    
+  {{- if .Values.commonAnnotations }}
+  annotations: {{- include "common.tplvalues.render" ( dict "value" .Values.commonAnnotations "context" $ ) | nindent 4 }}
+  {{- end }}
+spec:
+  scaleTargetRef:
+    apiVersion: {{ include "common.capabilities.deployment.apiVersion" . }}
+    kind: Deployment
+    name: fhir-resource-server
+  minReplicas: {{ .Values.fhir-resource-server.autoscaling.minReplicas }}
+  maxReplicas: {{ .Values.fhir-resource-server.autoscaling.maxReplicas }}
+  metrics:
+    {{- if .Values.fhir-resource-server.autoscaling.targetCPU }}
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: {{ .Values.fhir-resource-server.autoscaling.targetCPU }}
+    {{- end }}
+    {{- if .Values.fhir-resource-server.autoscaling.targetMemory }}
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: {{ .Values.fhir-resource-server.autoscaling.targetMemory  }}
+    {{- end }}
+{{- end }}
