@@ -110,6 +110,33 @@ podAnnotations:
 ## @section fhir-resource Parameters
 fhir-resource-server:
   enabled: true
+  env:
+    - name: AUTH_URL
+      valueFrom:
+        secretKeyRef:
+          name: fhir-resource-config
+          key: commonConfig.AUTH_URL
+    - name: AUTH_CERT_ENDPOINT
+      valueFrom:
+        secretKeyRef:
+          name: fhir-resource-config
+          key: commonConfig.AUTH_CERT_ENDPOINT
+    - name: POSTGRES_DB
+      valueFrom:
+        secretKeyRef:
+          name: fhir-resource-config
+          key: commonConfig.POSTGRES_DB
+    - name: POSTGRES_USER
+      valueFrom:
+        secretKeyRef:
+          name: fhir-resource-config
+          key: commonConfig.POSTGRES_USER
+    - name: POSTGRES_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: fhir-resource-config
+          key: commonConfig.POSTGRES_PASSWORD
+
 
 ## @param fhir-resource-server.replicaCount Number of fhir-resource-server replicas to deploy
   ##
