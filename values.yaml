@@ -108,7 +108,7 @@ podAnnotations:
   prometheus.io/scrape: "true"
 
 ## @section fhir-resource Parameters
-fhir-resource-server:
+fhirResourceServer:
   enabled: true
   env:
     - name: AUTH_URL
@@ -138,19 +138,19 @@ fhir-resource-server:
           key: commonConfig.POSTGRES_PASSWORD
 
 
-## @param fhir-resource-server.replicaCount Number of fhir-resource-server replicas to deploy
+## @param fhirResourceServer.replicaCount Number of fhirResourceServer replicas to deploy
   ##
   replicaCount: 1
   
-  ## Configure extra options for fhir-resource-server containers' liveness and readiness probes
+  ## Configure extra options for fhirResourceServer containers' liveness and readiness probes
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/#configure-probes
-  ## @param fhir-resource-server.livenessProbe.enabled Enable livenessProbe on fhir-resource-server containers
-  ## @param fhir-resource-server.livenessProbe.initialDelaySeconds Initial delay seconds for livenessProbe
-  ## @param fhir-resource-server.livenessProbe.periodSeconds Period seconds for livenessProbe
-  ## @param fhir-resource-server.livenessProbe.timeoutSeconds Timeout seconds for livenessProbe
-  ## @param fhir-resource-server.livenessProbe.failureThreshold Failure threshold for livenessProbe
-  ## @param fhir-resource-server.livenessProbe.successThreshold Success threshold for livenessProbe
-  ## @param fhir-resource-server.livenessProbe.path Path for httpGet
+  ## @param fhirResourceServer.livenessProbe.enabled Enable livenessProbe on fhirResourceServer containers
+  ## @param fhirResourceServer.livenessProbe.initialDelaySeconds Initial delay seconds for livenessProbe
+  ## @param fhirResourceServer.livenessProbe.periodSeconds Period seconds for livenessProbe
+  ## @param fhirResourceServer.livenessProbe.timeoutSeconds Timeout seconds for livenessProbe
+  ## @param fhirResourceServer.livenessProbe.failureThreshold Failure threshold for livenessProbe
+  ## @param fhirResourceServer.livenessProbe.successThreshold Success threshold for livenessProbe
+  ## @param fhirResourceServer.livenessProbe.path Path for httpGet
   ##
   livenessProbe:
     enabled: true
@@ -160,12 +160,12 @@ fhir-resource-server:
     timeoutSeconds: 10
     #failureThreshold: 10
     #successThreshold: 10
-  ## @param fhir-resource-server.readinessProbe.enabled Enable readinessProbe on fhir-resource-server containers
-  ## @param fhir-resource-server.readinessProbe.initialDelaySeconds Initial delay seconds for readinessProbe
-  ## @param fhir-resource-server.readinessProbe.periodSeconds Period seconds for readinessProbe
-  ## @param fhir-resource-server.readinessProbe.timeoutSeconds Timeout seconds for readinessProbe
-  ## @param fhir-resource-server.readinessProbe.failureThreshold Failure threshold for readinessProbe
-  ## @param fhir-resource-server.readinessProbe.successThreshold Success threshold for readinessProbe
+  ## @param fhirResourceServer.readinessProbe.enabled Enable readinessProbe on fhirResourceServer containers
+  ## @param fhirResourceServer.readinessProbe.initialDelaySeconds Initial delay seconds for readinessProbe
+  ## @param fhirResourceServer.readinessProbe.periodSeconds Period seconds for readinessProbe
+  ## @param fhirResourceServer.readinessProbe.timeoutSeconds Timeout seconds for readinessProbe
+  ## @param fhirResourceServer.readinessProbe.failureThreshold Failure threshold for readinessProbe
+  ## @param fhirResourceServer.readinessProbe.successThreshold Success threshold for readinessProbe
   ##
   readinessProbe:
     enabled: false
@@ -174,12 +174,12 @@ fhir-resource-server:
     timeoutSeconds: 10
     failureThreshold: 10
     successThreshold: 10
-  ## @param fhir-resource-server.startupProbe.enabled Enable startupProbe on fhir-resource-server containers
-  ## @param fhir-resource-server.startupProbe.initialDelaySeconds Initial delay seconds for startupProbe
-  ## @param fhir-resource-server.startupProbe.periodSeconds Period seconds for startupProbe
-  ## @param fhir-resource-server.startupProbe.timeoutSeconds Timeout seconds for startupProbe
-  ## @param fhir-resource-server.startupProbe.failureThreshold Failure threshold for startupProbe
-  ## @param fhir-resource-server.startupProbe.successThreshold Success threshold for startupProbe
+  ## @param fhirResourceServer.startupProbe.enabled Enable startupProbe on fhirResourceServer containers
+  ## @param fhirResourceServer.startupProbe.initialDelaySeconds Initial delay seconds for startupProbe
+  ## @param fhirResourceServer.startupProbe.periodSeconds Period seconds for startupProbe
+  ## @param fhirResourceServer.startupProbe.timeoutSeconds Timeout seconds for startupProbe
+  ## @param fhirResourceServer.startupProbe.failureThreshold Failure threshold for startupProbe
+  ## @param fhirResourceServer.startupProbe.successThreshold Success threshold for startupProbe
   ##
   startupProbe:
     enabled: false
@@ -188,20 +188,20 @@ fhir-resource-server:
     timeoutSeconds: 10
     failureThreshold: 10
     successThreshold: 10
-  ## @param fhir-resource-server.customLivenessProbe Custom livenessProbe that overrides the default one
+  ## @param fhirResourceServer.customLivenessProbe Custom livenessProbe that overrides the default one
   ##
   customLivenessProbe: {}
-  ## @param fhir-resource-server.customReadinessProbe Custom readinessProbe that overrides the default one
+  ## @param fhirResourceServer.customReadinessProbe Custom readinessProbe that overrides the default one
   ##
   customReadinessProbe: {}
-  ## @param fhir-resource-server.customStartupProbe Custom startupProbe that overrides the default one
+  ## @param fhirResourceServer.customStartupProbe Custom startupProbe that overrides the default one
   ##
   customStartupProbe: {}
 
   ## Configure Pods Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod
-  ## @param fhir-resource-server.podSecurityContext.enabled Enabled fhir-resource-server pods' Security Context
-  ## @param fhir-resource-server.podSecurityContext.fsGroup Set fhir-resource-server pod's Security Context fsGroup
+  ## @param fhirResourceServer.podSecurityContext.enabled Enabled fhirResourceServer pods' Security Context
+  ## @param fhirResourceServer.podSecurityContext.fsGroup Set fhirResourceServer pod's Security Context fsGroup
   ##
   podSecurityContext:
     enabled: true
@@ -210,9 +210,9 @@ fhir-resource-server:
     fsGroup: 1001
   ## Configure Container Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod
-  ## @param fhir-resource-server.containerSecurityContext.enabled Enabled fhir-resource-server containers' Security Context
-  ## @param fhir-resource-server.containerSecurityContext.runAsUser Set fhir-resource-server containers' Security Context runAsUser
-  ## @param fhir-resource-server.containerSecurityContext.runAsNonRoot Set fhir-resource-server containers' Security Context runAsNonRoot
+  ## @param fhirResourceServer.containerSecurityContext.enabled Enabled fhirResourceServer containers' Security Context
+  ## @param fhirResourceServer.containerSecurityContext.runAsUser Set fhirResourceServer containers' Security Context runAsUser
+  ## @param fhirResourceServer.containerSecurityContext.runAsNonRoot Set fhirResourceServer containers' Security Context runAsNonRoot
   ##
   containerSecurityContext:
     enabled: true
@@ -224,68 +224,68 @@ fhir-resource-server:
           - ALL
     readOnlyRootFilesystem: true
    #%%OTHER_PARAMETERS_RELATED_TO_THIS_CONTAINER/POD%%
-   ## @param fhir-resource-server.existingConfigmap The name of an existing ConfigMap with your custom configuration for fhir-resource-server
+   ## @param fhirResourceServer.existingConfigmap The name of an existing ConfigMap with your custom configuration for fhirResourceServer
   ##
   existingConfigmap:
     
-  ## @param fhir-resource-server.command Override default container command (useful when using custom images)
+  ## @param fhirResourceServer.command Override default container command (useful when using custom images)
   ##
   command: ["/bin/bash"]
-  ## @param fhir-resource-server.args Override default container args (useful when using custom images)
+  ## @param fhirResourceServer.args Override default container args (useful when using custom images)
   ##
   
   args: ["-c","exec java $$APD_JAVA_OPTS -Dvertx.logger-delegate-factory-class-name=io.vertx.core.logging.Log4j2LogDelegateFactory -jar ./fatjar.jar --host $$MY_POD_IP -c secrets/configs/config.json"]
-  ## @param fhir-resource-server.hostAliases fhir-resource-server pods host aliases
+  ## @param fhirResourceServer.hostAliases fhirResourceServer pods host aliases
   ## https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/
   ##
   hostAliases: []
-  ## @param fhir-resource-server.podLabels Extra labels for fhir-resource-server pods
+  ## @param fhirResourceServer.podLabels Extra labels for fhirResourceServer pods
   ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
   ##
   podLabels: {}
-  ## @param fhir-resource-server.podAnnotations Annotations for fhir-resource-server pods
+  ## @param fhirResourceServer.podAnnotations Annotations for fhirResourceServer pods
   ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
   ##
-  ## @param fhir-resource-server.podAffinityPreset Pod affinity preset. Ignored if `fhir-resource-server.affinity` is set. Allowed values: `soft` or `hard`
+  ## @param fhirResourceServer.podAffinityPreset Pod affinity preset. Ignored if `fhirResourceServer.affinity` is set. Allowed values: `soft` or `hard`
   ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity
   ##
   podAffinityPreset: ""
-  ## @param fhir-resource-server.podAntiAffinityPreset Pod anti-affinity preset. Ignored if `fhir-resource-server.affinity` is set. Allowed values: `soft` or `hard`
+  ## @param fhirResourceServer.podAntiAffinityPreset Pod anti-affinity preset. Ignored if `fhirResourceServer.affinity` is set. Allowed values: `soft` or `hard`
   ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity
   ##
   podAntiAffinityPreset: ""
-  ## Node fhir-resource-server.affinity preset
+  ## Node fhirResourceServer.affinity preset
   ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity
   ##
   nodeAffinityPreset:
-    ## @param fhir-resource-server.nodeAffinityPreset.type Node affinity preset type. Ignored if `fhir-resource-server.affinity` is set. Allowed values: `soft` or `hard`
+    ## @param fhirResourceServer.nodeAffinityPreset.type Node affinity preset type. Ignored if `fhirResourceServer.affinity` is set. Allowed values: `soft` or `hard`
     ##
     type: ""
-    ## @param fhir-resource-server.nodeAffinityPreset.key Node label key to match. Ignored if `fhir-resource-server.affinity` is set
+    ## @param fhirResourceServer.nodeAffinityPreset.key Node label key to match. Ignored if `fhirResourceServer.affinity` is set
     ##
     key: ""
-    ## @param fhir-resource-server.nodeAffinityPreset.values Node label values to match. Ignored if `fhir-resource-server.affinity` is set
+    ## @param fhirResourceServer.nodeAffinityPreset.values Node label values to match. Ignored if `fhirResourceServer.affinity` is set
     ## E.g.
     ## values:
     ##   - e2e-az1
     ##   - e2e-az2
     ##
     values: []
-  ## @param fhir-resource-server.affinity Affinity for fhir-resource-server pods assignment
+  ## @param fhirResourceServer.affinity Affinity for fhirResourceServer pods assignment
   ## ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
-  ## NOTE: `fhir-resource-server.podAffinityPreset`, `fhir-resource-server.podAntiAffinityPreset`, and `fhir-resource-server.nodeAffinityPreset` will be ignored when it's set
+  ## NOTE: `fhirResourceServer.podAffinityPreset`, `fhirResourceServer.podAntiAffinityPreset`, and `fhirResourceServer.nodeAffinityPreset` will be ignored when it's set
   ##
   affinity: {}
-  ## @param fhir-resource-server.nodeSelector Node labels for fhir-resource-server pods assignment
+  ## @param fhirResourceServer.nodeSelector Node labels for fhirResourceServer pods assignment
   ## ref: https://kubernetes.io/docs/user-guide/node-selection/
   ##
   nodeSelector:
 
-  ## @param fhir-resource-server.tolerations Tolerations for fhir-resource-server pods assignment
+  ## @param fhirResourceServer.tolerations Tolerations for fhirResourceServer pods assignment
   ## ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
   ##
   tolerations: []
-  ## @param fhir-resource-server.updateStrategy.type fhir-resource-server statefulset strategy type
+  ## @param fhirResourceServer.updateStrategy.type fhirResourceServer statefulset strategy type
   ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#update-strategies
   ##
   updateStrategy:
@@ -293,30 +293,30 @@ fhir-resource-server:
     ## Can be set to RollingUpdate or OnDelete
     ##
     ##type: RollingUpdate
-  ## @param fhir-resource-server.priorityClassName fhir-resource-server pods' priorityClassName
+  ## @param fhirResourceServer.priorityClassName fhirResourceServer pods' priorityClassName
   ##
   priorityClassName: ""
-  ## @param fhir-resource-server.schedulerName Name of the k8s scheduler (other than default) for fhir-resource-server pods
+  ## @param fhirResourceServer.schedulerName Name of the k8s scheduler (other than default) for fhirResourceServer pods
   ## ref: https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/
   ##
   schedulerName: ""
-  ## @param fhir-resource-server.lifecycleHooks for the fhir-resource-server container(s) to automate configuration before or after startup
+  ## @param fhirResourceServer.lifecycleHooks for the fhirResourceServer container(s) to automate configuration before or after startup
   ##
   lifecycleHooks: {}
-  ## @param fhir-resource-server.extraEnvVars Array with extra environment variables to add to fhir-resource-server nodes
+  ## @param fhirResourceServer.extraEnvVars Array with extra environment variables to add to fhirResourceServer nodes
   ## e.g:
   ## extraEnvVars:
   ##   - name: FOO
   ##     value: "bar"
   ##
   extraEnvVars: []
-  ## @param fhir-resource-server.extraEnvVarsCM Name of existing ConfigMap containing extra env vars for fhir-resource-server nodes
+  ## @param fhirResourceServer.extraEnvVarsCM Name of existing ConfigMap containing extra env vars for fhirResourceServer nodes
   ##
   extraEnvVarsCM: "fhir-resource-env"
-  ## @param fhir-resource-server.extraEnvVarsSecret Name of existing Secret containing extra env vars for fhir-resource-server nodes
+  ## @param fhirResourceServer.extraEnvVarsSecret Name of existing Secret containing extra env vars for fhirResourceServer nodes
   ##
   extraEnvVarsSecret:
-  ## @param fhir-resource-server.extraVolumes Optionally specify extra list of additional volumes for the fhir-resource-server pod(s)
+  ## @param fhirResourceServer.extraVolumes Optionally specify extra list of additional volumes for the fhirResourceServer pod(s)
   ##
   extraVolumes:
     - name: fhir-resource-config
@@ -325,7 +325,7 @@ fhir-resource-server:
     - name: fhir-resource-tmp
       emptyDir:
         medium: Memory
-  ## @param fhir-resource-server.extraVolumeMounts Optionally specify extra list of additional volumeMounts for the fhir-resource-server container(s)
+  ## @param fhirResourceServer.extraVolumeMounts Optionally specify extra list of additional volumeMounts for the fhirResourceServer container(s)
   ##
   extraVolumeMounts: 
     - name: fhir-resource-config
@@ -333,7 +333,7 @@ fhir-resource-server:
     - name: fhir-resource-tmp        
       mountPath: /tmp
   
-  ## @param fhir-resource-server.sidecars Add additional sidecar containers to the fhir-resource-server pod(s)
+  ## @param fhirResourceServer.sidecars Add additional sidecar containers to the fhirResourceServer pod(s)
   ## e.g:
   ## sidecars:
   ## - name: your-image-name
@@ -345,7 +345,7 @@ fhir-resource-server:
   ##
 
   sidecars: {}
-  ## @param fhir-resource-server.initContainers Add additional init containers to the fhir-resource-server pod(s)
+  ## @param fhirResourceServer.initContainers Add additional init containers to the fhirResourceServer pod(s)
   ## ref: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/
   ## e.g:
   ## initContainers:
@@ -356,11 +356,11 @@ fhir-resource-server:
   ##
   initContainers: {}
   ## ref: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
-  ## @param fhir-resource-server.autoscaling.enabled Enable Horizontal POD autoscaling for Apache
-  ## @param fhir-resource-server.autoscaling.minReplicas Minimum number of Apache replicas
-  ## @param fhir-resource-server.autoscaling.maxReplicas Maximum number of Apache replicas
-  ## @param fhir-resource-server.autoscaling.targetCPU Target CPU utilization percentage
-  ## @param fhir-resource-server.autoscaling.targetMemory Target Memory utilization percentage
+  ## @param fhirResourceServer.autoscaling.enabled Enable Horizontal POD autoscaling for Apache
+  ## @param fhirResourceServer.autoscaling.minReplicas Minimum number of Apache replicas
+  ## @param fhirResourceServer.autoscaling.maxReplicas Maximum number of Apache replicas
+  ## @param fhirResourceServer.autoscaling.targetCPU Target CPU utilization percentage
+  ## @param fhirResourceServer.autoscaling.targetMemory Target Memory utilization percentage
 
   
   autoscaling:
@@ -374,7 +374,7 @@ fhir-resource-server:
 
 ## @section Traffic Exposure Parameters
 
-## fhir-resource-server service parameters
+## fhirResourceServer service parameters
 ##
 service:
   ## @param service.type ApiServer service type
@@ -395,32 +395,32 @@ service:
   ## clusterIP: None
   ##
   clusterIP:
-  ## @param service.loadBalancerIP fhir-resource-server service Load Balancer IP
+  ## @param service.loadBalancerIP fhirResourceServer service Load Balancer IP
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
   ##
   loadBalancerIP:
-  ## @param service.loadBalancerSourceRanges fhir-resource-server service Load Balancer sources
+  ## @param service.loadBalancerSourceRanges fhirResourceServer service Load Balancer sources
   ## ref: https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/#restrict-access-for-loadbalancer-service
   ## e.g:
   ## loadBalancerSourceRanges:
   ##   - 10.10.10.0/24
   ##
   loadBalancerSourceRanges: []
-  ## @param service.externalTrafficPolicy fhir-resource-server service external traffic policy
+  ## @param service.externalTrafficPolicy fhirResourceServer service external traffic policy
   ## ref http://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/#preserving-the-client-source-ip
   ##
   externalTrafficPolicy: Cluster
-  ## @param service.annotations Additional custom annotations for fhir-resource-server service
+  ## @param service.annotations Additional custom annotations for fhirResourceServer service
   ##
   annotations: {}
-  ## @param service.extraPorts Extra ports to expose in fhir-resource-server service (normally used with the `sidecars` value)
+  ## @param service.extraPorts Extra ports to expose in fhirResourceServer service (normally used with the `sidecars` value)
   ##
   extraPorts: []
-## fhir-resource-server ingress parameters
+## fhirResourceServer ingress parameters
 ## ref: http://kubernetes.io/docs/user-guide/ingress/
 ##
 ingress:
-  ## @param ingress.enabled Enable ingress record generation for fhir-resource-server
+  ## @param ingress.enabled Enable ingress record generation for fhirResourceServer
   ##
   enabled: true
   ## @param ingress.pathType Ingress path type

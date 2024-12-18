@@ -1,4 +1,4 @@
-{{- if and .Values.fhir-resource-server.enabled .Values.fhir.autoscaling.enabled }}
+{{- if and .Values.fhirResourceServer.enabled .Values.fhirResourceServer.autoscaling.enabled }}
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
@@ -18,23 +18,23 @@ spec:
     apiVersion: {{ include "common.capabilities.deployment.apiVersion" . }}
     kind: Deployment
     name: fhir-resource-server
-  minReplicas: {{ .Values.fhir-resource-server.autoscaling.minReplicas }}
-  maxReplicas: {{ .Values.fhir-resource-server.autoscaling.maxReplicas }}
+  minReplicas: {{ .Values.fhirResourceServer.autoscaling.minReplicas }}
+  maxReplicas: {{ .Values.fhirResourceServer.autoscaling.maxReplicas }}
   metrics:
-    {{- if .Values.fhir-resource-server.autoscaling.targetCPU }}
+    {{- if .Values.fhirResourceServer.autoscaling.targetCPU }}
     - type: Resource
       resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: {{ .Values.fhir-resource-server.autoscaling.targetCPU }}
+          averageUtilization: {{ .Values.fhirResourceServer.autoscaling.targetCPU }}
     {{- end }}
-    {{- if .Values.fhir-resource-server.autoscaling.targetMemory }}
+    {{- if .Values.fhirResourceServer.autoscaling.targetMemory }}
     - type: Resource
       resource:
         name: memory
         target:
           type: Utilization
-          averageUtilization: {{ .Values.fhir-resource-server.autoscaling.targetMemory  }}
+          averageUtilization: {{ .Values.fhirResourceServer.autoscaling.targetMemory  }}
     {{- end }}
 {{- end }}

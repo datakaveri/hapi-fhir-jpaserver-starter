@@ -4,10 +4,10 @@ ingress:
     cert-manager.io/cluster-issuer: "letsencrypt-staging" # use letsencrypt-prod if proper letsencrypt certs are required
   }
 
-## fhir-resource-server resource requests and limits
+## fhirResourceServer resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
-## @param fhir-resource-server.resources.limits The resources limits for the fhir-resource-server containers
-## @param fhir-resource-server.resources.requests The requested resources for the fhir-resource-server containers
+## @param fhirResourceServer.resources.limits The resources limits for the fhirResourceServer containers
+## @param fhirResourceServer.resources.requests The requested resources for the fhirResourceServer containers
 ##
 fhir-resource-server:
   enabled: true

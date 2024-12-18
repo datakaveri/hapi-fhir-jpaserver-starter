@@ -45,8 +45,8 @@ Compile all warnings into a single message.
 */}}
 {{- define "catalogue.validateValues" -}}
 {{- $messages := list -}}
-{{- $messages := append $messages (include "catalogue.fhir-resource-server.validateValues.foo" .) -}}
-{{- $messages := append $messages (include "catalogue.fhir-resource-server.validateValues.bar" .) -}}
+{{- $messages := append $messages (include "catalogue.fhirResourceServer.validateValues.foo" .) -}}
+{{- $messages := append $messages (include "catalogue.fhirResourceServer.validateValues.bar" .) -}}
 {{- $messages := without $messages "" -}}
 {{- $message := join "\n" $messages -}}
 
